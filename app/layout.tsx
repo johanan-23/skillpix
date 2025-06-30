@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BotIdClient } from "botid/client";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const protectedRoutes = [
   {
@@ -89,9 +91,7 @@ export default function RootLayout({
         />
         <BotIdClient protect={protectedRoutes} />
       </Head>
-      <body
-        className={"antialiased"}
-      >
+      <body className={"antialiased"}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -99,6 +99,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
