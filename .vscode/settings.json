@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": ["@radix-ui", "next/router", "next/dist", "^lucid-react/dist/lucid-react.suffixed$", "react-day-picker"],
+}
