@@ -75,7 +75,7 @@ export default function LoginCard() {
                 d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
               ></path>
             </svg>
-            Sign in with Google
+            Log In with Google
           </Button>
           <Button
             variant="outline"
@@ -96,18 +96,21 @@ export default function LoginCard() {
                 d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
               ></path>
             </svg>
-            Sign in with Github
+            Log In with GitHub
           </Button>
         </div>
       </CardContent>
       <CardFooter className="flex flex-col items-center space-y-2 pt-2">
-        <Link
-          href="/register"
-          className="text-sm text-muted-foreground hover:underline"
-        >
-          Don’t have an account?{" "}
-          <span className="font-medium text-primary">Sign up</span>
-        </Link>
+        <p className="text-xs text-muted-foreground">
+          By signing in, you agree to our{" "}
+          <Link href="/terms" className="underline">
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy" className="underline">
+            Privacy Policy
+          </Link>
+        </p>
       </CardFooter>
     </Card>
   );
