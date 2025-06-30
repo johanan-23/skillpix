@@ -30,14 +30,4 @@ export const auth = betterAuth({
       trustedProviders: ["google", "github"],
     },
   },
-  user: {
-    additionalFields: {
-      role: {
-        type: "string",
-        required: false,
-        defaultValue: "user",
-        input: false, // don't allow user to set role
-      },
-    },
-  },
 });
