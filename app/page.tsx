@@ -7,6 +7,8 @@ import HowItWorksSection from "./components/how-it-works-section";
 import ComplementSection from "./components/complement-section";
 import FeaturesSection from "./components/features-section";
 import BenefitsSection from "./components/benefits-section";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 const FaqSection = dynamic(() => import("./components/faq-section"), {
   ssr: true,
@@ -27,12 +29,6 @@ const CtaSection = dynamic(() => import("./components/cta-section"), {
     <div className="min-h-[120px] w-full animate-pulse bg-muted/30 rounded-xl my-8" />
   ),
 });
-const Footer = dynamic(() => import("./components/footer"), {
-  ssr: true,
-  loading: () => (
-    <div className="min-h-[80px] w-full animate-pulse bg-muted/30 rounded-xl my-8" />
-  ),
-});
 const InnovationFundSection = dynamic(
   () => import("./components/innovation-fund-section"),
   {
@@ -42,12 +38,6 @@ const InnovationFundSection = dynamic(
     ),
   }
 );
-const Header = dynamic(() => import("./components/header"), {
-  ssr: true,
-  loading: () => (
-    <div className="h-16 w-full animate-pulse bg-muted/30 rounded-xl my-4" />
-  ),
-});
 const ScrollToTop = dynamic(() => import("./components/scroll-to-top"), {
   ssr: true,
   loading: () => (

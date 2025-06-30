@@ -1,10 +1,10 @@
 "use client";
 import type React from "react";
 import { motion } from "framer-motion";
-import LoginCard from "../components/login-card";
+import SignInCard from "../components/signin-card";
 import Header from "../../components/header";
 
-export default function LoginPage() {
+export default function SignInPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
       <Header
@@ -19,7 +19,7 @@ export default function LoginPage() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <LoginCard />
+        <SignInCard />
       </motion.div>
     </div>
   );

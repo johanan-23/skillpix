@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { BookX, Clock, Briefcase, GraduationCap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { BookX, Clock, Briefcase, GraduationCap } from "lucide-react";
 
 // Mock data for education problems
 const educationProblems = [
@@ -42,64 +41,51 @@ const educationProblems = [
     color: "bg-yellow-100 dark:bg-yellow-950",
     iconColor: "text-yellow-600 dark:text-yellow-400",
   },
-]
+];
 
 const EducationProblemsSection = () => {
   return (
     <section id="why-skillpix" className="py-20 bg-muted/30">
       <div className="container px-4 md:px-6">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            The Engineering Education <span className="text-red-500">Crisis</span>
+            The Engineering Education{" "}
+            <span className="text-red-500">Crisis</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Today’s engineering education isn’t preparing students for tomorrow’s challenges. Here’s why:
+            Today’s engineering education isn’t preparing students for
+            tomorrow’s challenges. Here’s why:
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          {educationProblems.map((problem, index) => (
-            <motion.div
-              key={problem.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+          {educationProblems.map((problem) => (
+            <div key={problem.id}>
               <Card className="h-full border-none shadow-md">
                 <CardContent className="pt-6">
-                  <div className={`w-12 h-12 rounded-lg ${problem.color} flex items-center justify-center mb-4`}>
+                  <div
+                    className={`w-12 h-12 rounded-lg ${problem.color} flex items-center justify-center mb-4`}
+                  >
                     <problem.icon className={`h-6 w-6 ${problem.iconColor}`} />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{problem.title}</h3>
                   <p className="text-muted-foreground">{problem.description}</p>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <div className="mt-16 text-center">
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            <span className="font-semibold">The result?</span> Graduates who struggle to find jobs, employers who can’t
-            find qualified candidates, and a widening skills gap in the engineering industry.
+            <span className="font-semibold">The result?</span> Graduates who
+            struggle to find jobs, employers who can’t find qualified
+            candidates, and a widening skills gap in the engineering industry.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default EducationProblemsSection
+export default EducationProblemsSection;

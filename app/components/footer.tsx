@@ -2,9 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
+import { Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 // Mock data for footer links
 const footerLinks = {
   product: [
@@ -72,7 +70,7 @@ const Footer = () => {
                 aria-label="Twitter"
                 className="rounded-l-xl rounded-r-none bg-primary/15 hover:bg-primary/20"
               >
-                <FaXTwitter className="h-12 w-12" />
+                <Twitter className="h-12 w-12" />
               </Button>
               <Button
                 variant="secondary"
@@ -80,7 +78,7 @@ const Footer = () => {
                 aria-label="Instagram"
                 className="rounded-none bg-primary/15 hover:bg-primary/20"
               >
-                <AiFillInstagram className="h-12 w-12" />
+                <Instagram className="h-12 w-12" />
               </Button>
               <Button
                 variant="secondary"
@@ -88,7 +86,7 @@ const Footer = () => {
                 aria-label="LinkedIn"
                 className="rounded-none bg-primary/15 hover:bg-primary/20"
               >
-                <FaLinkedin className="h-12 w-12" />
+                <Linkedin className="h-12 w-12" />
               </Button>
               <Button
                 variant="secondary"
@@ -96,7 +94,7 @@ const Footer = () => {
                 aria-label="YouTube"
                 className="rounded-l-none rounded-r-xl bg-primary/15 hover:bg-primary/20"
               >
-                <FaYoutube className="h-12 w-12" />
+                <Youtube className="h-12 w-12" />
               </Button>
             </div>
           </div>

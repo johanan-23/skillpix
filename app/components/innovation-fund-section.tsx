@@ -1,68 +1,44 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { BadgeCheck, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Sparkles } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const InnovationFundSection = () => {
   return (
-    <section className="py-20 bg-background text-foreground">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="space-y-6 max-w-2xl w-full text-center"
-          >
-            <div className="inline-flex items-center gap-2 bg-background px-3 py-1 rounded-full text-primary text-sm font-medium border border-primary/20 mx-auto">
-              <Sparkles className="h-4 w-4 text-amber-400" />
-              <span>Skillpix Innovation Fund</span>
-            </div>
-
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+    <section className="py-24 bg-gradient-to-b from-background via-muted/60 to-background">
+      <div className="container flex justify-center">
+        <Card className="w-full max-w-xl border-none shadow-none bg-card">
+          <CardContent className="flex flex-col items-center gap-8 py-14 px-6">
+            <Badge
+              className="mb-2 flex items-center gap-2 rounded-full border-primary/20 bg-primary/10 px-4 py-1 text-primary"
+              variant="outline"
+            >
+              Innovation Fund for Projects
+            </Badge>
+            <h2 className="text-3xl text-center font-extrabold tracking-tight text-foreground md:text-4xl">
               Great Ideas Deserve{" "}
-              <span className="underline decoration-dotted underline-offset-4">
+              <span className="decoration-primary decoration-wavy underline-offset-8 underline">
                 Support
               </span>
             </h2>
-
-            <p className="text-xl text-muted-foreground">
+            <p className="max-w-md text-center text-lg text-muted-foreground">
               We believe in removing barriers to innovation. That’s why we’ve
-              created the Skillpix Innovation Fund to sponsor promising student
-              projects in the future. Stay tuned for updates and opportunities
-              to apply!
+              created the{" "}
+              <span className="font-semibold text-primary">
+                Skillpix Innovation Fund
+              </span>{" "}
+              to sponsor promising student projects in the future.
             </p>
-
-            <div className="space-y-4 mt-8">
-              <div className="flex flex-col items-center gap-3">
-                <BadgeCheck className="h-6 w-6 text-primary-foreground flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-medium text-lg text-foreground">
-                    Launching Soon
-                  </h3>
-                  <p className="text-muted-foreground">
-                    The Innovation Fund is coming soon. We’re working to build a
-                    transparent, merit-based sponsorship program for student
-                    innovators.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-background text-primary border border-primary hover:bg-primary/10"
-                disabled
-              >
-                Applications Opening Soon
-              </Button>
-            </div>
-          </motion.div>
-        </div>
+            <Button
+              className="max-w-xs w-full cursor-not-allowed opacity-90 py-6 text-base font-semibold"
+              disabled
+              variant="secondary"
+            >
+              <Sparkles className="mr-2 h-5 w-5 animate-pulse text-primary" />
+              Applications Opening Soon
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

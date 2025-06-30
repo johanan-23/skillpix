@@ -22,7 +22,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/utils/auth-client";
-import { toast } from "sonner";
 import SignOutButton from "./signout-btn";
 import Image from "next/image";
 
@@ -50,11 +49,9 @@ const Header = ({
 }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-
   const {
     data: session,
-    isPending, //loading state
-    error, //error object
+    isPending,
   } = authClient.useSession();
   const isLoggedIn = session?.user || false;
   const user = {
@@ -62,17 +59,6 @@ const Header = ({
     email: session?.user.email,
     image: session?.user.image,
   };
-
-  useEffect(() => {
-    if (error) {
-      toast.error(
-        typeof error === "string"
-          ? error
-          : error?.message || "Failed to fetch session. Please try again."
-      );
-    }
-  }, [error]);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {

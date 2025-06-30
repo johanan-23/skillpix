@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 
@@ -36,13 +35,7 @@ const ComplementSection = () => {
   return (
     <section id="complement" className="py-20 bg-primary/5">
       <div className="container px-4 md:px-6">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Not a Replacement, But a{" "}
             <span className="text-primary">Perfect Complement</span>
@@ -51,16 +44,10 @@ const ComplementSection = () => {
             Skillpix works alongside traditional engineering education,
             enhancing your degree with the practical skills employers demand.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <h3 className="text-2xl font-bold">For Students</h3>
             <p className="text-muted-foreground">
               Your degree provides essential theoretical foundations. Skillpix
@@ -130,15 +117,9 @@ const ComplementSection = () => {
                 </div>
               </li>
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             <h3 className="text-2xl font-bold">For Institutions</h3>
             <p className="text-muted-foreground">
               Partner with Skillpix to enhance your engineering programs without
@@ -146,14 +127,8 @@ const ComplementSection = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-              {collegeBenefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
+              {collegeBenefits.map((benefit) => (
+                <div key={benefit.id}>
                   <Card className="h-full border shadow-sm hover:shadow-md transition-all duration-300">
                     <CardContent>
                       <h4 className="font-medium text-lg mb-2">
@@ -164,10 +139,10 @@ const ComplementSection = () => {
                       </p>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

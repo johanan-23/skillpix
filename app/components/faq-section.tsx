@@ -112,13 +112,7 @@ export default function FaqSection() {
   return (
     <section className="py-20 bg-primary/5" id="faq">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Frequently Asked <span className="text-primary">Questions</span>
           </h2>
@@ -126,15 +120,9 @@ export default function FaqSection() {
             Find answers to common questions about how Skillpix works for
             engineering students
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto"
-        >
+        <div className="max-w-3xl mx-auto">
           <Accordion
             type="single"
             collapsible
@@ -145,7 +133,7 @@ export default function FaqSection() {
               <motion.div
                 key={faq.question}
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.1 }}
                 viewport={{ once: true, margin: "-50px" }}
               >
@@ -153,9 +141,7 @@ export default function FaqSection() {
                   value={`item-${i}`}
                   className="border-b last:border-b-0"
                 >
-                  <AccordionTrigger>
-                    {faq.question}
-                  </AccordionTrigger>
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
                     <div className="py-2">{faq.answer}</div>
                   </AccordionContent>
@@ -163,7 +149,7 @@ export default function FaqSection() {
               </motion.div>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
