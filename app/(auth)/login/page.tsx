@@ -3,7 +3,6 @@ import type React from "react";
 import { motion } from "framer-motion";
 import LoginCard from "../components/login-card";
 import Header from "../../components/header";
-import type { Metadata } from "next";
 
 export default function LoginPage() {
   return (
