@@ -5,11 +5,6 @@ import LoginCard from "../components/login-card";
 import Header from "../../components/header";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Login",
-  description: "Log in to your Skillpix account.",
-};
-
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
