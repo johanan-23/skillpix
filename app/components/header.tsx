@@ -47,12 +47,10 @@ const Header = ({
   showNavLinks = true,
   showAuthArea = true,
 }: HeaderProps) => {
+  // Avoid hydration mismatch: always start with false, then sync on mount
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const {
-    data: session,
-    isPending,
-  } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
   const isLoggedIn = session?.user || false;
   const user = {
     name: session?.user.name,
@@ -60,16 +58,11 @@ const Header = ({
     image: session?.user.image,
   };
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // On mount, check scroll position in case of scroll restoration
+    const syncScroll = () => setIsScrolled(window.scrollY > 10);
+    syncScroll();
+    window.addEventListener("scroll", syncScroll);
+    return () => window.removeEventListener("scroll", syncScroll);
   }, []);
 
   return (

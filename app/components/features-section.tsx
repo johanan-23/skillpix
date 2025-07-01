@@ -12,8 +12,8 @@ import {
   Briefcase,
   Award,
   MessageSquare,
-  Video,
   FileText,
+  Target,
 } from "lucide-react";
 
 // Mock data for features
@@ -62,17 +62,17 @@ const features = [
   },
   {
     id: 7,
-    title: "Expert Mentorship",
+    title: "Patent Application Support",
     description:
-      "Get guidance from industry professionals and academic experts.",
-    icon: Video,
+    "Assistance with intellectual property protection for innovative projects.",
+    icon: FileText,
   },
   {
     id: 8,
-    title: "Patent Application Support",
+    title: "Placement Training",
     description:
-      "Assistance with intellectual property protection for innovative projects.",
-    icon: FileText,
+      "Comprehensive interview prep, resume review, and aptitude training for career success.",
+    icon: Target,
   },
 ];
 

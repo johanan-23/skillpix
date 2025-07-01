@@ -9,6 +9,7 @@ import FeaturesSection from "./components/features-section";
 import BenefitsSection from "./components/benefits-section";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import PlacementTrainingSection from "./components/placement-training";
 
 const FaqSection = dynamic(() => import("./components/faq-section"), {
   ssr: true,
@@ -57,6 +58,7 @@ export default async function Home() {
         <ComplementSection />
         <FeaturesSection />
         <BenefitsSection />
+        <PlacementTrainingSection />
         <Suspense
           fallback={
             <div className="min-h-[120px] w-full animate-pulse bg-muted/30 rounded-xl my-8" />

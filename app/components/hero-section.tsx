@@ -30,7 +30,7 @@ const HeroSection = () => {
                 </Button>
               </Link>
             </Badge>
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter break-words leading-tight">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal break-words leading-tight">
               <span className="block sm:inline text-5xl">From Learning</span>
               <span className="block sm:inline text-5xl"> to Earning.</span>
             </h1>

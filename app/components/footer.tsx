@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
+import SocialLinks from "@/lib/social-links";
 // Mock data for footer links
 const footerLinks = {
   product: [
@@ -59,43 +60,62 @@ const Footer = () => {
                 priority
               />
             </Link>
+            <h2 className="text-center md:text-left text-2xl font-bold text-primary mb-2 mt-0 leading-tight">
+              Skillpix Platform
+            </h2>
             <p className="text-center md:text-left text-base text-muted-foreground mb-4 max-w-xs">
-              Empowering students to turn ideas into reality.
+              From Learning to Earning.
             </p>
             {/* Social Icons */}
             <div className="flex space-x-1 mb-4 md:mb-0">
-              <Button
-                variant="secondary"
-                size="default"
-                aria-label="Twitter"
-                className="rounded-l-xl rounded-r-none bg-primary/15 hover:bg-primary/20"
-              >
-                <Twitter className="h-12 w-12" />
-              </Button>
-              <Button
-                variant="secondary"
-                size="default"
+              <Link href={SocialLinks.X} target="_blank" aria-label="Twitter">
+                <Button
+                  variant="secondary"
+                  size="default"
+                  className="rounded-l-xl rounded-r-none bg-primary/15 hover:bg-primary/20"
+                >
+                  <Twitter className="h-12 w-12" />
+                </Button>
+              </Link>
+              <Link
+                href={SocialLinks.instagram}
+                target="_blank"
                 aria-label="Instagram"
-                className="rounded-none bg-primary/15 hover:bg-primary/20"
               >
-                <Instagram className="h-12 w-12" />
-              </Button>
-              <Button
-                variant="secondary"
-                size="default"
+                <Button
+                  variant="secondary"
+                  size="default"
+                  className="rounded-none bg-primary/15 hover:bg-primary/20"
+                >
+                  <Instagram className="h-12 w-12" />
+                </Button>
+              </Link>
+              <Link
+                href={SocialLinks.linkedin}
+                target="_blank"
                 aria-label="LinkedIn"
-                className="rounded-none bg-primary/15 hover:bg-primary/20"
               >
-                <Linkedin className="h-12 w-12" />
-              </Button>
-              <Button
-                variant="secondary"
-                size="default"
+                <Button
+                  variant="secondary"
+                  size="default"
+                  className="rounded-none bg-primary/15 hover:bg-primary/20"
+                >
+                  <Linkedin className="h-12 w-12" />
+                </Button>
+              </Link>
+              <Link
+                href={SocialLinks.youtube}
+                target="_blank"
                 aria-label="YouTube"
-                className="rounded-l-none rounded-r-xl bg-primary/15 hover:bg-primary/20"
               >
-                <Youtube className="h-12 w-12" />
-              </Button>
+                <Button
+                  variant="secondary"
+                  size="default"
+                  className="rounded-l-none rounded-r-xl bg-primary/15 hover:bg-primary/20"
+                >
+                  <Youtube className="h-12 w-12" />
+                </Button>
+              </Link>
             </div>
           </div>
           {/* Right: Footer Links */}
