@@ -79,7 +79,7 @@ const Header = ({
           {/* Back Button */}
           {showBackButton && (
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
               onClick={() => window.history.back()}
               className="mr-2"

@@ -30,13 +30,18 @@ export const metadata: Metadata = {
       "Master real skills, apply them through live projects, and get placement-ready with training that works — all in one platform.",
     url: "https://skillpix.com",
     siteName: "Skillpix",
+    images: ["/skillpix-og.jpeg"],
+    locale: "en_IN",
+    type: "website",
   },
   twitter: {
-    title: "Skillpix",
+    title: "Skillpix – Skills. Projects. Placement.",
     description:
       "Master real skills, apply them through live projects, and get placement-ready with training that works — all in one platform.",
     card: "summary_large_image",
-    creator: "@skillpix_offl",
+    creator: "@johanan_offl",
+    site: "@skillpix_offl",
+    images: ["/skillpix-og.jpeg"],
   },
   keywords: [
     "skillpix",

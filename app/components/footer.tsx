@@ -7,7 +7,7 @@ import SocialLinks from "@/lib/social-links";
 // Mock data for footer links
 const footerLinks = {
   product: [
-    { name: "Features", href: "#" },
+    { name: "Features", href: "#features" },
     { name: "Pricing", href: "#" },
     { name: "Project Marketplace", href: "#" },
   ],
@@ -22,10 +22,10 @@ const footerLinks = {
     { name: "Community", href: "#" },
   ],
   legal: [
-    { name: "Terms", href: "#" },
-    { name: "Privacy", href: "#" },
-    { name: "Cookies", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Terms", href: "/terms" },
+    { name: "Privacy", href: "/privacy-policy" },
+    { name: "Cookies", href: "/cookies" },
+    { name: "Contact", href: "/contact" },
   ],
 };
 
@@ -192,13 +192,13 @@ const Footer = () => {
             ))}
           </ul>
           <span className="text-xs text-muted-foreground mt-2 md:mt-0">
-            Made with ❤️ by{" "}
+            Made with ❤️ in{" "}
             <Link
               target="_blank"
               href="https://www.johanan.in"
               className="text-xs text-muted-foreground hover:text-primary transition-colors"
             >
-              Johanan S. A.
+              India
             </Link>
           </span>
           <span className="text-xs text-muted-foreground mt-2 md:mt-0">

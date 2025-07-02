@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 
 const InnovationFundSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-background via-muted/60 to-background">
+    <section className="py-24">
       <div className="container flex justify-center">
         <Card className="w-full max-w-xl border-none shadow-none bg-card">
           <CardContent className="flex flex-col items-center gap-8 py-14 px-6">
@@ -29,14 +29,6 @@ const InnovationFundSection = () => {
               </span>{" "}
               to sponsor promising student projects in the future.
             </p>
-            <Button
-              className="max-w-xs w-full cursor-not-allowed opacity-90 py-6 text-base font-semibold"
-              disabled
-              variant="secondary"
-            >
-              <Sparkles className="mr-2 h-5 w-5 animate-pulse text-primary" />
-              Applications Opening Soon
-            </Button>
           </CardContent>
         </Card>
       </div>
