@@ -14,17 +14,18 @@ export default function PrivacyPolicyPage() {
             <CardContent className="p-6 sm:p-8 md:p-10">
               <h2 className="text-2xl font-semibold mt-6">1. Introduction</h2>
               <p className="mt-2">
-                Skillpix ("we", "us", or "our") is committed to protecting your
-                privacy and ensuring the security of your personal information.
-                This Privacy Policy explains in detail how we collect, use,
-                disclose, and safeguard your information when you use our
-                website, application, and services (collectively, the
-                "Platform"). By accessing or using the Platform, you acknowledge
-                and consent to the practices described in this policy. Please
-                read this policy carefully to understand our views and practices
-                regarding your personal data and how we will treat it. If you do
-                not agree with any part of this policy, you should discontinue
-                use of the Platform immediately.
+                Skillpix (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is
+                committed to protecting your privacy and ensuring the security
+                of your personal information. This Privacy Policy explains in
+                detail how we collect, use, disclose, and safeguard your
+                information when you use our website, application, and services
+                (collectively, the &quot;Platform&quot;). By accessing or using
+                the Platform, you acknowledge and consent to the practices
+                described in this policy. Please read this policy carefully to
+                understand our views and practices regarding your personal data
+                and how we will treat it. If you do not agree with any part of
+                this policy, you should discontinue use of the Platform
+                immediately.
               </p>
 
               <h2 className="text-2xl font-semibold mt-6">
@@ -280,7 +281,7 @@ export default function PrivacyPolicyPage() {
                 We may update or revise this Privacy Policy periodically to
                 reflect changes in our practices, legal requirements, or for
                 other operational reasons. The latest version will always be
-                available on our website, along with the "Last Updated" date at
+                available on our website, along with the “Last Updated” date at
                 the end of this policy. If we make significant changes, we will
                 notify you via email, in-app alerts, or other appropriate means.
                 Your continued use of the Platform after such changes
