@@ -192,14 +192,7 @@ const Footer = () => {
             ))}
           </ul>
           <span className="text-xs text-muted-foreground mt-2 md:mt-0">
-            Made with ❤️ in{" "}
-            <Link
-              target="_blank"
-              href="https://www.johanan.in"
-              className="text-xs text-muted-foreground hover:text-primary transition-colors"
-            >
-              India
-            </Link>
+            Made with ❤️ in India
           </span>
           <span className="text-xs text-muted-foreground mt-2 md:mt-0">
             © {new Date().getFullYear()} Skillpix. All rights reserved.

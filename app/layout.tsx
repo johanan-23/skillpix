@@ -18,6 +18,7 @@ const protectedRoutes = [
 ];
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.skillpix.com"),
   title: {
     template: "%s | Skillpix",
     default: "Skillpix",

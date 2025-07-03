@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "pnpm exec drizzle-kit generate",
+    "studio": "pnpm exec drizzle-kit studio"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
