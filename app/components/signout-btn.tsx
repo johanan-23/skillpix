@@ -26,7 +26,7 @@ export default function SignOutButton() {
   };
 
   return (
-    <Button onClick={handleSignOut} className="mr-4 w-full" disabled={isPending}>
+    <Button onClick={handleSignOut} className="mr-4 w-full bg-destructive hover:bg-destructive/80" disabled={isPending}>
       {isPending ? <PulseLoader size={8} color={"black"} /> : "Sign Out"}
     </Button>
   );

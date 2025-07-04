@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center space-y-8 sm:space-y-12">
           <div className="space-y-4 max-w-full sm:max-w-3xl flex flex-col items-center">
             <Badge
-              className="mt-2 text-[10px] xs:text-xs sm:text-sm md:text-base px-2 xs:px-2.5 sm:px-3 py-1 xs:py-1.5 sm:py-2 rounded-full"
+              className="mt-2 text-[10px] xs:text-xs sm:text-sm md:text-base px-2 xs:px-2.5 sm:px-3 py-1 xs:py-1.5 sm:py-2 rounded-full group"
               variant={"secondary"}
             >
               <Link
@@ -25,7 +25,7 @@ const HeroSection = () => {
                   className="rounded-full ml-1 xs:ml-1.5 sm:ml-2 p-0 h-4 w-4 xs:h-5 xs:w-5 sm:h-6 sm:w-6 min-w-0 min-h-0 flex items-center justify-center"
                   tabIndex={-1}
                 >
-                  <ArrowUpRight className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4" />
+                  <ArrowRight className="h-2 w-2 xs:h-3 xs:w-3 sm:h-4 sm:w-4 transition-transform group-hover:rotate-45" />
                 </Button>
               </Link>
             </Badge>
