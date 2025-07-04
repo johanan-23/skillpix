@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 
-// Removed the 'system' theme from the theme cycling logic
+
 const useThemeCycle = () => {
   const { theme, setTheme } = useTheme();
 
@@ -20,7 +20,6 @@ const useThemeCycle = () => {
   return { theme, setTheme, cycleTheme };
 };
 
-// Custom hook for view transitions
 const useViewTransition = (
   buttonRef: React.RefObject<HTMLButtonElement | null>
 ) => {
@@ -76,7 +75,6 @@ const useViewTransition = (
   return startTransition;
 };
 
-// Added 'className' prop to allow customization at the place of mounting
 export function ThemeToggle({ className }: { className?: string }) {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const [mounted, setMounted] = React.useState(false);
@@ -92,7 +90,6 @@ export function ThemeToggle({ className }: { className?: string }) {
     setMounted(true);
   }, []);
 
-  // Updated the getThemeIcon function to remove the 'system' case
   const getThemeIcon = () => {
     if (!mounted)
       return (
@@ -109,7 +106,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
         );
       default:
-        return null; // Removed 'system' icon
+        return null;
     }
   };
 

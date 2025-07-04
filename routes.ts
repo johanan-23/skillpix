@@ -11,7 +11,8 @@ export const publicRoutes: string[] = [
   "/terms",
   "/privacy-policy",
   "/subscribe-newsletter",
-  "/api/chatbot"
+  "/api/chatbot",
+  "/manifest.json",
 ];
 
 /**

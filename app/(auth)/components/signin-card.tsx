@@ -26,11 +26,13 @@ export default function SignInCard() {
     setError(null);
     setLoading(true);
     try {
-      // Remove onResponse to avoid hiding loader before redirect
+      // Get callbackUrl from query string if present
+      const params = new URLSearchParams(window.location.search);
+      const callbackUrl = params.get("callbackUrl") || "/";
       await signIn.social(
         {
           provider,
-          callbackURL: "/",
+          callbackURL: callbackUrl,
         },
         {
           onRequest: () => setLoading(true),

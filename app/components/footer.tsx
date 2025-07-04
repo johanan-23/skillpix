@@ -128,12 +128,13 @@ const Footer = () => {
               <ul className="space-y-2">
                 {footerLinks.product.map((link) => (
                   <li key={link.name}>
-                    <a
+                    <Link
                       href={link.href}
+                      prefetch={true}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -146,12 +147,13 @@ const Footer = () => {
               <ul className="space-y-2">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <a
+                    <Link
                       href={link.href}
+                      prefetch={true}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -164,12 +166,13 @@ const Footer = () => {
               <ul className="space-y-2">
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
-                    <a
+                    <Link
                       href={link.href}
+                      prefetch={true}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
