@@ -53,6 +53,6 @@ Skillpix is a modern web platform designed to bridge the gap between learning an
 - `generate` - drizzle-kit generate DB schema and push to Neon,
 - `studio` - drizzle-kit studio for visualizing DB
 
-**Skillpix Platform**
+**Skillpix Platform.**
 **From Learning to Earning.**
 **Made with ❤️ in India.**
