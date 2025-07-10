@@ -5,9 +5,10 @@ import { eq } from "drizzle-orm";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const { isRead, isStarred, isArchived } = body;
 
@@ -31,7 +32,7 @@ export async function PATCH(
     const updatedNotification = await db
       .update(notification)
       .set(updates)
-      .where(eq(notification.id, params.id))
+      .where(eq(notification.id, id))
       .returning();
 
     if (updatedNotification.length === 0) {
@@ -53,12 +54,13 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const deletedNotification = await db
       .delete(notification)
-      .where(eq(notification.id, params.id))
+      .where(eq(notification.id, id))
       .returning();
 
     if (deletedNotification.length === 0) {
