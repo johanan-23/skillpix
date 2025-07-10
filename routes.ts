@@ -13,6 +13,10 @@ export const publicRoutes: string[] = [
   "/subscribe-newsletter",
   "/api/chatbot",
   "/manifest.json",
+  "/api/notifications",
+  "/api/notifications/bulk",
+  "/api/ban-status",
+  "/banned"
 ];
 
 /**

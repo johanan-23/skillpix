@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
@@ -52,6 +53,8 @@ const Header = ({
     window.addEventListener("scroll", syncScroll);
     return () => window.removeEventListener("scroll", syncScroll);
   }, []);
+
+  const pathname = usePathname();
 
   return (
     <header
@@ -127,16 +130,24 @@ const Header = ({
           )}
           {showNavLinks && (
             <nav className="hidden md:flex items-center space-x-6">
-              {navigationLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  prefetch={true}
-                  className="text-foreground/80 hover:text-primary transition-colors font-medium"
-                >
-                  {link.name}
-                </Link>
-              ))}
+          {navigationLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                prefetch={true}
+                className={
+                  `transition-colors font-medium ` +
+                  (isActive
+                    ? "text-primary font-bold"
+                    : "text-foreground/80 hover:text-primary")
+                }
+              >
+                {link.name}
+              </Link>
+            );
+          })}
             </nav>
           )}
           {/* Auth Buttons & Theme Toggle */}
@@ -169,16 +180,24 @@ const Header = ({
                     className="w-56 mt-2 rounded-2xl shadow-xl border-0 backdrop-blur-lg p-0 overflow-hidden bg-card"
                   >
                     <div className="flex flex-col space-y-1 py-4 px-3">
-                      {navigationLinks.map((link) => (
-                        <Link
-                          key={link.name}
-                          href={link.href}
-                          prefetch={true}
-                          className="text-foreground/90 hover:text-primary transition-colors font-medium py-2 px-3 rounded-lg hover:bg-primary/10 text-left"
-                        >
-                          {link.name}
-                        </Link>
-                      ))}
+                      {navigationLinks.map((link) => {
+                        const isActive = pathname === link.href;
+                        return (
+                          <Link
+                            key={link.name}
+                            href={link.href}
+                            prefetch={true}
+                            className={
+                              `transition-colors font-medium py-2 px-3 rounded-lg text-left ` +
+                              (isActive
+                                ? "text-primary font-bold bg-primary/10"
+                                : "text-foreground/90 hover:text-primary hover:bg-primary/10")
+                            }
+                          >
+                            {link.name}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>

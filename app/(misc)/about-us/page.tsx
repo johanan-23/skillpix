@@ -1,17 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import Header from "../components/header";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "../../components/ui/card";
-import { Badge } from "../../components/ui/badge";
 
-import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
 import { Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Header from "@/app/components/header";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function AboutUsPage() {
   // Example team data for carousel

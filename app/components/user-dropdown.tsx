@@ -38,16 +38,18 @@ const UserDropdown: React.FC<UserDropdownProps> = ({ user }) => (
     <DropdownMenuContent className="w-56" align="end" forceMount>
       <DropdownMenuLabel className="font-normal">
         <div className="space-y-4">
-          <div className="flex items-center space-x-3 p-0 rounded-xl">
+          <div className="flex items-center space-x-3 m-0 rounded-xl">
             <Avatar className="h-10 w-10">
               <AvatarImage src={user.image || ""} alt={user.name} />
               <AvatarFallback className="bg-primary text-primary-foreground">
                 {user.name?.charAt(0) || "?"}
               </AvatarFallback>
             </Avatar>
-            <div>
+            <div className="pr-2">
               <p className="text-sm font-semibold leading-tight">{user.name}</p>
-              <p className="text-xs text-muted-foreground">{user.email}</p>
+                <p className="text-[10px] text-muted-foreground truncate max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                  {user.email}
+                </p>
             </div>
           </div>
         </div>

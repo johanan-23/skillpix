@@ -17,6 +17,10 @@ export async function middleware(request: NextRequest) {
   const isPublicRoute = publicRoutes.includes(pathname);
   const isAuthRoute = authRoutes.includes(pathname);
 
+  if (session?.user?.banned) {
+    return NextResponse.redirect(new URL("/banned", request.nextUrl));
+  }
+
   if (isApiAuthRoute) {
     return NextResponse.next();
   }

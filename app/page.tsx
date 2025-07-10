@@ -10,6 +10,11 @@ import BenefitsSection from "./components/benefits-section";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import PlacementTrainingSection from "./components/placement-training";
+import { headers } from "next/headers";
+import { auth } from "@/utils/auth";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ShieldUser } from "lucide-react";
 
 const FaqSection = dynamic(() => import("./components/faq-section"), {
   ssr: true,
@@ -47,6 +52,11 @@ const ScrollToTop = dynamic(() => import("./components/scroll-to-top"), {
 });
 
 export default async function Home() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  const isAdmin = session?.user?.role === "admin";
+
   return (
     <main className="relative min-h-screen overflow-hidden">
       <div className="relative z-10 container mx-auto max-w-7xl px-4 md:px-6">
@@ -104,6 +114,15 @@ export default async function Home() {
         <Chatbot />
       </Suspense>
       <ScrollToTop />
+      {isAdmin && (
+          <div className="fixed bottom-4 right-16">
+            <Link href="/admin">
+              <Button variant="outline" size={"icon"} className="h-10 w-10">
+                <ShieldUser className="h-10 w-10" />
+              </Button>
+            </Link>
+          </div>
+        )}
     </main>
   );
 }
