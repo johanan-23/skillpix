@@ -49,7 +49,6 @@ import {
 } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
-import Image from "next/image";
 
 // Type definitions
 interface User {
