@@ -8,9 +8,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, BookOpen, Settings, Github } from "lucide-react";
 import SignOutButton from "./signout-btn";
-
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import SettingsIcon from "@mui/icons-material/Settings";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import SocialLinks from "@/lib/social-links";
 interface UserDropdownProps {
   user: {
     name?: string;
@@ -47,30 +50,52 @@ const UserDropdown: React.FC<UserDropdownProps> = ({ user }) => (
             </Avatar>
             <div className="pr-2">
               <p className="text-sm font-semibold leading-tight">{user.name}</p>
-                <p className="text-[10px] text-muted-foreground truncate max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
-                  {user.email}
-                </p>
+              <p className="text-[10px] text-muted-foreground truncate max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+                {user.email}
+              </p>
             </div>
           </div>
         </div>
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <User className="mr-2 h-4 w-4" />
-        <span>Profile</span>
+      <DropdownMenuItem className="group flex items-center gap-2 px-3 py-2 rounded-lg transition-colors hover:bg-primary/10 focus:bg-primary/20 active:bg-primary/30 cursor-pointer">
+        <AccountBoxIcon
+          fontSize="small"
+          className="mr-2 text-primary transition-colors"
+        />
+        <span className="font-medium text-sm group-hover:text-primary">
+          Profile
+        </span>
       </DropdownMenuItem>
-      <DropdownMenuItem>
-        <BookOpen className="mr-2 h-4 w-4" />
-        <span>My Learning</span>
+      <DropdownMenuItem className="group flex items-center gap-2 px-3 py-2 rounded-lg transition-colors hover:bg-primary/10 focus:bg-primary/20 active:bg-primary/30 cursor-pointer">
+        <LocalLibraryIcon
+          fontSize="small"
+          className="mr-2 text-primary transition-colors"
+        />
+        <span className="font-medium text-sm group-hover:text-primary">
+          My Learning
+        </span>
       </DropdownMenuItem>
-      <DropdownMenuItem>
-        <Settings className="mr-2 h-4 w-4" />
-        <span>Settings</span>
+      <DropdownMenuItem className="group flex items-center gap-2 px-3 py-2 rounded-lg transition-colors hover:bg-primary/10 focus:bg-primary/20 active:bg-primary/30 cursor-pointer">
+        <SettingsIcon
+          fontSize="small"
+          className="mr-2 text-primary transition-colors"
+        />
+        <span className="font-medium text-sm group-hover:text-primary">
+          Settings
+        </span>
       </DropdownMenuItem>
-      <DropdownMenuItem>
-        <Github className="mr-2 h-4 w-4" />
-        <span>GitHub</span>
-      </DropdownMenuItem>
+        <a href={SocialLinks.github} target="_blank" className="no-underline">
+          <DropdownMenuItem className="group flex items-center gap-2 px-3 py-2 rounded-lg transition-colors hover:bg-primary/10 focus:bg-primary/20 active:bg-primary/30 cursor-pointer">
+            <GitHubIcon
+              fontSize="small"
+              className="mr-2 text-primary transition-colors"
+            />
+            <span className="font-medium text-sm group-hover:text-primary">
+              GitHub
+            </span>
+          </DropdownMenuItem>
+        </a>
       <DropdownMenuSeparator />
       <DropdownMenuItem className="!bg-transparent hover:!bg-transparent focus:!bg-transparent active:!bg-transparent">
         <SignOutButton />

@@ -16,6 +16,7 @@ import UserDropdown from "./user-dropdown";
 import { authClient } from "@/utils/auth-client";
 
 import Image from "next/image";
+import { BounceLoader } from "react-spinners";
 
 const navigationLinks = [
   { name: "Home", href: "/" },
@@ -153,7 +154,9 @@ const Header = ({
           <div className="flex items-center space-x-4">
             {showAuthArea &&
               (isPending ? (
-                <div className="flex items-center space-x-2"></div>
+              <div className="flex items-center space-x-2">
+                <BounceLoader size={24} color="white"/>
+                </div>
               ) : isLoggedIn ? (
                 <UserDropdown user={user} />
               ) : (

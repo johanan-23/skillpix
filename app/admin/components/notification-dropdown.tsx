@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Bell, Check, Eye, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,7 +12,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useRouter } from "next/navigation";
 import { formatDistanceToNow } from "date-fns";
-
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import MarkChatReadIcon from "@mui/icons-material/MarkChatRead";
+import SettingsIcon from "@mui/icons-material/Settings";
 interface Notification {
   id: string;
   title: string;
@@ -149,7 +151,7 @@ export function NotificationDropdown() {
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon" className="rounded-full relative">
-          <Bell className="h-4 w-4" />
+          <NotificationsIcon fontSize="small" />
           {unreadCount > 0 && (
             <span className="absolute -top-2 -right-2 h-3 w-3 bg-blue-500 rounded-full border-2 border-background" />
           )}
@@ -163,22 +165,21 @@ export function NotificationDropdown() {
           <div className="flex items-center gap-2">
             {unreadCount > 0 && (
               <Button
-                variant="ghost"
-                size="sm"
+                variant="link"
+                size="icon"
                 onClick={markAllAsRead}
-                className="h-6 px-2 text-xs"
+                className="h-fit text-xs"
               >
-                <Check className="h-3 w-3 mr-1" />
-                Mark all read
+                <MarkChatReadIcon fontSize="small" className="mr-1" />
               </Button>
             )}
             <Button
-              variant="ghost"
+              variant="link"
               size="icon"
               onClick={viewAllNotifications}
               className="h-6 w-6"
             >
-              <Settings className="h-3 w-3" />
+              <SettingsIcon fontSize="small" />
             </Button>
           </div>
         </div>
@@ -187,7 +188,7 @@ export function NotificationDropdown() {
         <ScrollArea className="h-96">
           {notifications.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
-              <Bell className="h-8 w-8 mb-2 opacity-50" />
+              <NotificationsIcon fontSize="small" className="mb-2 opacity-50" />
               <p className="text-sm">No notifications</p>
             </div>
           ) : (
@@ -250,7 +251,7 @@ export function NotificationDropdown() {
             className="w-full justify-center text-sm"
             onClick={viewAllNotifications}
           >
-            <Eye className="h-4 w-4 mr-2" />
+            <VisibilityIcon fontSize="small" className="mr-2" />
             View all notifications
           </Button>
         </div>

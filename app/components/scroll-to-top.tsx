@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
+import SwipeUpIcon from "@mui/icons-material/SwipeUp";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { TooltipOnHover } from "@/components/misc/tooltipper";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,14 +43,16 @@ const ScrollToTop = () => {
           : "opacity-0 translate-y-2 pointer-events-none"
       )}
     >
-      <Button
-        onClick={scrollToTop}
-        size="icon"
-        className="h-10 w-10 shadow-xl hover:shadow-2xl bg-primary hover:bg-primary/90 text-primary-foreground"
-        aria-label="Scroll to top"
-      >
-        <ArrowUp className="h-8 w-8" />
-      </Button>
+      <TooltipOnHover text="Scroll to top">
+        <Button
+          onClick={scrollToTop}
+          size="icon"
+          className="h-10 w-10 shadow-xl hover:shadow-2xl bg-primary hover:bg-primary/90 text-primary-foreground"
+          aria-label="Scroll to top"
+        >
+          <SwipeUpIcon fontSize="small" />
+        </Button>
+      </TooltipOnHover>
     </div>
   );
 };

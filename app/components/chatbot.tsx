@@ -27,8 +27,8 @@ import {
   Loader2,
   X,
   SendHorizonal,
-  Headset,
 } from "lucide-react";
+import QuickreplyIcon from "@mui/icons-material/Quickreply";
 
 // Responsive hook
 function useIsMobile() {
@@ -283,7 +283,7 @@ export default function Chatbot() {
               className="h-10 w-10 shadow-xl hover:shadow-2xl bg-primary hover:bg-primary/90 text-primary-foreground"
               aria-label="Open chat"
             >
-              <Headset className="h-7 w-7" />
+              <QuickreplyIcon fontSize="small" />
             </Button>
           </SheetTrigger>
           <SheetContent
@@ -315,7 +315,7 @@ export default function Chatbot() {
           </SheetContent>
         </Sheet>
       ) : (
-        <Dialog open={isOpen} onOpenChange={setIsOpen} modal={false} >
+        <Dialog open={isOpen} onOpenChange={setIsOpen} modal={false}>
           <DialogTrigger asChild>
             <Button
               size="icon"
@@ -323,11 +323,11 @@ export default function Chatbot() {
               className="h-10 w-10 shadow-xl hover:shadow-2xl bg-primary hover:bg-primary/90 text-primary-foreground"
               aria-label="Open chat"
             >
-              <Headset className="h-7 w-7" />
+              <QuickreplyIcon fontSize="small" />
             </Button>
           </DialogTrigger>
           <DialogContent
-              hideClose
+            hideClose
             className="max-w-md w-full p-0 animate-in fade-in slide-in-from-bottom-8 duration-300"
           >
             <DialogHeader className="flex flex-row items-center justify-between px-4 pt-4 pb-2 border-b">

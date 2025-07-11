@@ -346,6 +346,7 @@ export default function SessionsPage() {
                             <TableCell className="sticky left-0 z-10 bg-background border border-r font-medium min-w-[180px]">
                               <div className="flex items-center gap-2">
                                 {user.image && (
+                                  // eslint-disable-next-line @next/next/no-img-element
                                   <img
                                     src={user.image}
                                     alt={user.name || user.email || "User"}

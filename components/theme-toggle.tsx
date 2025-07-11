@@ -1,11 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun, Loader } from "lucide-react";
+import { Loader } from "lucide-react";
 import { useTheme } from "next-themes";
-
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Button } from "@/components/ui/button";
-
+import { AnimatePresence, motion } from "framer-motion";
 
 const useThemeCycle = () => {
   const { theme, setTheme } = useTheme();
@@ -96,18 +97,50 @@ export function ThemeToggle({ className }: { className?: string }) {
         <Loader className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
       );
 
-    switch (theme) {
-      case "light":
-        return (
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
-        );
-      case "dark":
-        return (
-          <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
-        );
-      default:
-        return null;
-    }
+    return (
+      <AnimatePresence mode="wait" initial={false}>
+        {theme === "light" && (
+          <motion.span
+            key="light"
+            initial={{ opacity: 0, scale: 0.7, rotate: -30 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.7, rotate: 30 }}
+            transition={{
+              duration: 0.3,
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            }}
+            className="flex items-center justify-center"
+          >
+            <LightModeIcon
+              fontSize="small"
+              className="rotate-0 scale-100 transition-all"
+            />
+          </motion.span>
+        )}
+        {theme === "dark" && (
+          <motion.span
+            key="dark"
+            initial={{ opacity: 0, scale: 0.7, rotate: 30 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.7, rotate: -30 }}
+            transition={{
+              duration: 0.3,
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+            }}
+            className="flex items-center justify-center"
+          >
+            <DarkModeIcon
+              fontSize="small"
+              className="rotate-0 scale-100 transition-all"
+            />
+          </motion.span>
+        )}
+      </AnimatePresence>
+    );
   };
 
   return (
@@ -116,9 +149,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       variant="outline"
       size="icon"
       onClick={handleThemeChange}
-      className={`flex items-center justify-center ${
-        className || ""
-      }`}
+      className={`flex items-center justify-center ${className || ""}`}
     >
       {getThemeIcon()}
       <span className="sr-only">Toggle theme</span>

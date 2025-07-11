@@ -12,16 +12,14 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
-import {
-  Activity,
-  BarChart3,
-  LayoutDashboard,
-  Users,
-  Bell,
-} from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { SidebarLogo } from "./sidebar-logo";
-
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import AreaChartIcon from "@mui/icons-material/AreaChart";
+import CampaignIcon from "@mui/icons-material/Campaign";
+import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
+import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
   const router = useRouter();
@@ -38,7 +36,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               isActive={pathname === "/admin"}
               onClick={() => router.push("/admin")}
             >
-              <LayoutDashboard />
+              <SpaceDashboardIcon fontSize="small" />
               <span>Dashboard</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -47,7 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               isActive={pathname === "/admin/users"}
               onClick={() => router.push("/admin/users")}
             >
-              <Users />
+              <SupervisedUserCircleIcon fontSize="small" />
               <span>Users</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -56,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               isActive={pathname === "/admin/sessions"}
               onClick={() => router.push("/admin/sessions")}
             >
-              <Activity />
+              <SensorOccupiedIcon fontSize="small" />
               <span>Sessions</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -65,8 +63,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               isActive={pathname === "/admin/notifications"}
               onClick={() => router.push("/admin/notifications")}
             >
-              <Bell />
+              <CampaignIcon fontSize="small" />
               <span>Notifications</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              isActive={pathname === "/admin/support"}
+              onClick={() => router.push("/admin/support")}
+            >
+              <SupportAgentIcon fontSize="small" />
+              <span>Support Tickets</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
@@ -74,7 +81,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               isActive={pathname === "/admin/analytics"}
               onClick={() => router.push("/admin/analytics")}
             >
-              <BarChart3 />
+              <AreaChartIcon fontSize="small" />
               <span>Analytics</span>
             </SidebarMenuButton>
           </SidebarMenuItem>

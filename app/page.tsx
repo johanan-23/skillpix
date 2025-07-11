@@ -14,7 +14,7 @@ import { headers } from "next/headers";
 import { auth } from "@/utils/auth";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ShieldUser } from "lucide-react";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const FaqSection = dynamic(() => import("./components/faq-section"), {
   ssr: true,
@@ -115,10 +115,10 @@ export default async function Home() {
       </Suspense>
       <ScrollToTop />
       {isAdmin && (
-          <div className="fixed bottom-4 right-16">
+          <div className="fixed bottom-4 right-16 z-50">
             <Link href="/admin">
-              <Button variant="outline" size={"icon"} className="h-10 w-10">
-                <ShieldUser className="h-10 w-10" />
+              <Button variant="secondary" size={"icon"} className="h-10 w-10">
+                <AdminPanelSettingsIcon fontSize="medium" />
               </Button>
             </Link>
           </div>

@@ -124,7 +124,8 @@ import { toast } from "sonner";
 
 import { useEffect } from "react";
 import { authClient } from "@/utils/auth-client";
-
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import GppMaybeIcon from "@mui/icons-material/GppMaybe";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function UsersPage() {
@@ -622,26 +623,26 @@ export default function UsersPage() {
                       <TableHead className="border-r min-w-[180px] sticky left-0 z-20 bg-background">
                         User
                       </TableHead>
-                      <TableHead className="border-r min-w-[200px]">
-                        User ID
-                      </TableHead>
-                      <TableHead className="border-r min-w-[150px]">
-                        Username
-                      </TableHead>
                       <TableHead className="border-r min-w-[240px]">
                         Email
-                      </TableHead>
-                      <TableHead className="border-r min-w-[200px]">
-                        Institution
-                      </TableHead>
-                      <TableHead className="border-r min-w-[80px]">
-                        Grade
                       </TableHead>
                       <TableHead className="border-r min-w-[80px]">
                         Role
                       </TableHead>
                       <TableHead className="border-r min-w-[80px]">
                         Status
+                      </TableHead>
+                      <TableHead className="border-r min-w-[150px]">
+                        Username
+                      </TableHead>
+                      <TableHead className="border-r min-w-[200px]">
+                        User ID
+                      </TableHead>
+                      <TableHead className="border-r min-w-[200px]">
+                        Institution
+                      </TableHead>
+                      <TableHead className="border-r min-w-[80px]">
+                        Grade
                       </TableHead>
                       <TableHead className="border-r min-w-[80px]">
                         Email Verified
@@ -729,7 +730,7 @@ export default function UsersPage() {
                       filteredUsers.map((user) => (
                         // ...existing code...
                         <TableRow key={user.id}>
-                          {/* ...existing code for user row... */}
+                          {/* User */}
                           <TableCell className="font-medium border-r max-w-[160px] truncate sticky left-0 z-10 bg-background">
                             <div className="flex items-center space-x-2">
                               <Avatar className="h-8 w-8">
@@ -754,7 +755,59 @@ export default function UsersPage() {
                               </div>
                             </div>
                           </TableCell>
-                          {/* User ID Column */}
+                          {/* Email */}
+                          <TableCell className="border-r max-w-[240px]">
+                            {user.email || (
+                              <span className="text-xs text-muted-foreground">
+                                -
+                              </span>
+                            )}
+                          </TableCell>
+                          {/* Role */}
+                          <TableCell className="border-r max-w-[80px] truncate">
+                            <Badge
+                              variant={
+                                user.role === "admin" ? "default" : "secondary"
+                              }
+                            >
+                              {user.role || "student"}
+                            </Badge>
+                          </TableCell>
+                          {/* Status */}
+                          <TableCell className="border-r max-w-[80px] truncate">
+                            {user.banned ? (
+                              <span className="text-red-600 font-bold">
+                                Banned
+                              </span>
+                            ) : (
+                              <span className="text-green-600">Active</span>
+                            )}
+                            {user.banned && user.banReason && (
+                              <div className="text-xs text-muted-foreground">
+                                {user.banReason}
+                              </div>
+                            )}
+                          </TableCell>
+                          {/* Username */}
+                          <TableCell className="border-r max-w-[120px] truncate">
+                            {user.username && user.username.length > 16 ? (
+                              <Popover>
+                                <PopoverTrigger asChild>
+                                  <span className="cursor-pointer underline text-blue-600">
+                                    {user.username.slice(0, 16)}…
+                                  </span>
+                                </PopoverTrigger>
+                                <PopoverContent>{user.username}</PopoverContent>
+                              </Popover>
+                            ) : (
+                              user.username || (
+                                <span className="text-xs text-muted-foreground">
+                                  -
+                                </span>
+                              )
+                            )}
+                          </TableCell>
+                          {/* User ID */}
                           <TableCell className="border-r max-w-[200px]">
                             {user.id && user.id.length > 24 ? (
                               <Popover>
@@ -779,32 +832,7 @@ export default function UsersPage() {
                               </span>
                             )}
                           </TableCell>
-                          {/* Username Column */}
-                          <TableCell className="border-r max-w-[120px] truncate">
-                            {user.username && user.username.length > 16 ? (
-                              <Popover>
-                                <PopoverTrigger asChild>
-                                  <span className="cursor-pointer underline text-blue-600">
-                                    {user.username.slice(0, 16)}…
-                                  </span>
-                                </PopoverTrigger>
-                                <PopoverContent>{user.username}</PopoverContent>
-                              </Popover>
-                            ) : (
-                              user.username || (
-                                <span className="text-xs text-muted-foreground">
-                                  -
-                                </span>
-                              )
-                            )}
-                          </TableCell>
-                          <TableCell className="border-r max-w-[240px]">
-                            {user.email || (
-                              <span className="text-xs text-muted-foreground">
-                                -
-                              </span>
-                            )}
-                          </TableCell>
+                          {/* Institution */}
                           <TableCell className="border-r max-w-[140px] truncate">
                             {user.institution &&
                             user.institution.length > 16 ? (
@@ -826,6 +854,7 @@ export default function UsersPage() {
                               )
                             )}
                           </TableCell>
+                          {/* Grade */}
                           <TableCell className="border-r max-w-[80px] truncate">
                             {user.gradeLevel && user.gradeLevel.length > 10 ? (
                               <Popover>
@@ -846,36 +875,17 @@ export default function UsersPage() {
                               )
                             )}
                           </TableCell>
+                          {/* Email Verified */}
                           <TableCell className="border-r max-w-[80px] truncate">
-                            <Badge
-                              variant={
-                                user.role === "admin" ? "default" : "secondary"
-                              }
-                            >
-                              {user.role || "student"}
-                            </Badge>
+                            <div className="flex items-center justify-center">
+                              {user.emailVerified ? (
+                                <VerifiedUserIcon fontSize="small" className="text-green-600" />
+                              ) : (
+                                <GppMaybeIcon fontSize="small" className="text-red-600" />
+                              )}
+                            </div>
                           </TableCell>
-                          <TableCell className="border-r max-w-[80px] truncate">
-                            {user.banned ? (
-                              <span className="text-red-600 font-bold">
-                                Banned
-                              </span>
-                            ) : (
-                              <span className="text-green-600">Active</span>
-                            )}
-                            {user.banned && user.banReason && (
-                              <div className="text-xs text-muted-foreground">
-                                {user.banReason}
-                              </div>
-                            )}
-                          </TableCell>
-                          <TableCell className="border-r max-w-[80px] truncate">
-                            {user.emailVerified ? (
-                              <UserCheck className="h-4 w-4 text-green-600" />
-                            ) : (
-                              <UserX className="h-4 w-4 text-red-600" />
-                            )}
-                          </TableCell>
+                          {/* Joined */}
                           <TableCell className="border-r max-w-[140px] truncate">
                             {user.createdAt ? (
                               new Date(user.createdAt).toLocaleString()
@@ -885,6 +895,7 @@ export default function UsersPage() {
                               </span>
                             )}
                           </TableCell>
+                          {/* Updated */}
                           <TableCell className="border-r max-w-[140px] truncate">
                             {user.updatedAt ? (
                               new Date(user.updatedAt).toLocaleString()
@@ -894,6 +905,7 @@ export default function UsersPage() {
                               </span>
                             )}
                           </TableCell>
+                          {/* Enrolled Courses */}
                           <TableCell className="border-r max-w-[160px] truncate">
                             {user.enrolledCourses &&
                             user.enrolledCourses.length > 16 ? (
@@ -915,6 +927,7 @@ export default function UsersPage() {
                               )
                             )}
                           </TableCell>
+                          {/* Achievements */}
                           <TableCell className="border-r max-w-[120px] truncate">
                             {user.achievements &&
                             user.achievements.length > 12 ? (
@@ -936,6 +949,7 @@ export default function UsersPage() {
                               )
                             )}
                           </TableCell>
+                          {/* Actions */}
                           <TableCell className="text-right sticky right-0 bg-background z-10 min-w-[120px] border-l">
                             <DropdownMenu>
                               <DropdownMenuTrigger asChild>
@@ -962,9 +976,7 @@ export default function UsersPage() {
                                     try {
                                       const res =
                                         await authClient.admin.listUserSessions(
-                                          {
-                                            userId: user.id,
-                                          }
+                                          { userId: user.id }
                                         );
                                       const sessions = Array.isArray(
                                         res?.data?.sessions
