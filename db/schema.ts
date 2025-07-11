@@ -125,6 +125,4 @@ export const authSchema = {
   session,
   account,
   verification,
-  notification,
-  notificationPreferences,
 };

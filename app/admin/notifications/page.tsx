@@ -65,6 +65,10 @@ const getNotificationIcon = (type: string) => {
       return "🏆";
     case "system":
       return "⚙️";
+    case "info":
+      return "💡";
+    case "support":
+      return "🛠️";
     default:
       return "💡";
   }

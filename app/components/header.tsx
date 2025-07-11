@@ -20,9 +20,8 @@ import Image from "next/image";
 const navigationLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about-us" },
-  // { name: "Pricing", href: "#pricing" },
   { name: "Features", href: "#features" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 interface HeaderProps {

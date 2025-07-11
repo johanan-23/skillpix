@@ -113,12 +113,8 @@ export function NotificationDropdown() {
       }
     }
 
-    // Navigate to action URL or notifications page
-    if (notification.actionUrl) {
-      router.push(notification.actionUrl);
-    } else {
-      router.push(`/admin/notifications?id=${notification.id}`);
-    }
+    // Always navigate to the notifications page with the notification id
+    router.push(`/admin/notifications?id=${notification.id}`);
     setIsOpen(false);
   };
 

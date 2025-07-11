@@ -125,13 +125,24 @@ import { toast } from "sonner";
 import { useEffect } from "react";
 import { authClient } from "@/utils/auth-client";
 
+import { useRouter, useSearchParams } from "next/navigation";
+
 export default function UsersPage() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  // Read initial values from URL search params
+  const initialSearch = searchParams.get("search") || "";
+  const initialRole =
+    (searchParams.get("role") as "all" | "admin" | "student") || "all";
+  const initialPage = parseInt(searchParams.get("page") || "1", 10);
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(
+    Number.isNaN(initialPage) ? 1 : initialPage
+  );
   const [totalUsers, setTotalUsers] = useState(0);
   const pageSize = 10;
   const form = useForm({
@@ -148,7 +159,7 @@ export default function UsersPage() {
   const [addUserLoading, setAddUserLoading] = useState(false);
   const [addUserError, setAddUserError] = useState<string | null>(null);
   const [roleFilter, setRoleFilter] = useState<"all" | "admin" | "student">(
-    "all"
+    initialRole
   );
   const [banDialog, setBanDialog] = useState<{
     open: boolean;
@@ -175,6 +186,20 @@ export default function UsersPage() {
   }>({ open: false, user: null });
   const [impersonateLoading, setImpersonateLoading] = useState(false);
   const [isImpersonating, setIsImpersonating] = useState(false);
+
+  // Sync state to URL search params
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (searchTerm) params.set("search", searchTerm);
+    if (roleFilter && roleFilter !== "all") params.set("role", roleFilter);
+    if (currentPage > 1) params.set("page", String(currentPage));
+    // Only update if different
+    const newUrl = `?${params.toString()}`;
+    if (window.location.search !== newUrl) {
+      router.replace(newUrl, { scroll: false });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm, roleFilter, currentPage]);
 
   useEffect(() => {
     let isMounted = true;
